@@ -1,0 +1,17 @@
+
+name: Test macOS build environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: macos-15
+    steps:
+      - name: Check disk and tools
+        run: |
+          sw_vers
+          xcodebuild -version
+          df -h /
+          python3 --version
+          git --version
